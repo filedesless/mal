@@ -56,7 +56,7 @@ def read_atom(reader: Reader) -> SExp:
     if not (token := reader.next()):
         raise Exception("unbalanced expression")
 
-    if token.isnumeric():
+    if (token.startswith('-') and token[1:].isnumeric()) or token.isnumeric():
         return Integer(int(token))
 
     if token.startswith(';') or token == "nil":

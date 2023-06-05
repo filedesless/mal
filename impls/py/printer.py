@@ -21,3 +21,4 @@ def pr_str(e: SExp, print_readably: bool = True) -> str:
             return f"[{' '.join(map(pr_str, l))}]"
         case Map(m):
             return f"{{{ ' '.join(pr_str(k) + ' ' + pr_str(v) for (k, v) in m.items()) }}}"
+    return e
